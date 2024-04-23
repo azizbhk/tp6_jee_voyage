@@ -5,10 +5,10 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import metier.entities.Departement;
+import metier.entities.voyage;
 import util.JPAutil;
 
-public class VoyageDaolmpl implements IVoyageDAO {
+public class voyageDaolmpl implements IvoyageDAO {
 	public  EntityManager entityManager=JPAutil.getEntityManager("TP6.typevoyage_JEE2");
 	@Override
 	public voyagesave(voyagep) {
@@ -20,27 +20,27 @@ public class VoyageDaolmpl implements IVoyageDAO {
 	}
 
 	
-	  @Override public List<Voyaget> VoyageParMC(String  mc) {
-	  List<Voyage> prods = entityManager. createQuery("select p from voyagep where p.NOM_voyagelike :mc").setParameter("mc", "%"+mc+"%").getResultList();
+	  @Override public List<voyage> voyageParMC(String  mc) {
+	  List<voyage> prods = entityManager. createQuery("select p from voyagep where p.NOM_voyagelike :mc").setParameter("mc", "%"+mc+"%").getResultList();
 	  return prods; }
 	 
 	
 	/*
-	 * @Override public List<Departement> DepartementParMC(String mc) { String
+	 * @Override public List<voyage> voyageParMC(String mc) { String
 	 * jpqlQuery =
 	 * "SELECT p FROM voyagep WHERE p.NOM_voyageLIKE '%voyageinformatiquezzzzzzzzzz%'"
-	 * ; List<Departement> prods = entityManager.createQuery(jpqlQuery,
-	 * Departement.class) .getResultList();
+	 * ; List<voyage> prods = entityManager.createQuery(jpqlQuery,
+	 * voyage.class) .getResultList();
 	 * 
 	 * return prods; }
 	 */
 	 
 	@Override
-	public voyagegetVoyage(Long id) {
-	return entityManager.find(Voyage.class, id);
+	public voyagegetvoyage(Long id) {
+	return entityManager.find(voyage.class, id);
 	}
 	@Override
-	public voyageupdateVoyage(voyagep) {
+	public voyageupdatevoyage(voyagep) {
 	EntityTransaction tx = entityManager.getTransaction();
 	tx.begin();
 	entityManager.merge(p);
@@ -48,10 +48,10 @@ public class VoyageDaolmpl implements IVoyageDAO {
 	return p;
 	}
 	@Override
-	public void deleteVoyage(Long id) {
-		voyagevoyage = entityManager.find(Voyage.class, id);
+	public void deletevoyage(Long id) {
+		voyagevoyage = entityManager.find(voyage.class, id);
 	entityManager.getTransaction().begin();
-	entityManager.remove(Voyage);
+	entityManager.remove(voyage);
 	entityManager.getTransaction().commit();
 	}
 	
