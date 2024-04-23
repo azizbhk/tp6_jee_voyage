@@ -2,14 +2,14 @@ package daoo;
 
 import java.util.List;
 
-import metier.entities.Departement;
+import metier.entities.voyage;
 
-public interface IDepartementDAO {
+public interface IvoyageDAO {
 	public voyagesave(voyagep);
-	public List<Departement> DepartementParMC(String mc);
-	public voyagegetDepartement(Long id);
-	public voyageupdateDepartement(voyagep);
-	public void deleteDepartement(Long id);
+	public List<voyage> voyageParMC(String mc);
+	public voyagegetvoyage(Long id);
+	public voyageupdatevoyage(voyagep);
+	public void deletevoyage(Long id);
 }
 
 
